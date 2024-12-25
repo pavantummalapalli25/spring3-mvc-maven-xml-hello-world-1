@@ -8,10 +8,11 @@
 	<name>spring3 mvc maven</name>
 
 	<properties>
-		<jdk.version>1.6</jdk.version>
-		<spring.version>3.2.13.RELEASE</spring.version>
+		<jdk.version>17</jdk.version>
+		<spring.version>5.3.29</spring.version>
 		<jstl.version>1.2</jstl.version>
-		
+		<maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+		<jetty.version>11.0.15</jetty.version>
 	</properties>
 
 	<dependencies>
@@ -46,7 +47,7 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.2.11.v20150529</version>
+				<version>${jetty.version}</version>
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webApp>
@@ -58,15 +59,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
+				<version>${maven.compiler.plugin.version}</version>
 				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-					<wtpversion>2.0</wtpversion>
-					<wtpContextName>spring3</wtpContextName>
-					<groupId>com.ncodeit</groupId>
-                                        <artifactId>ncodeit-hello-world</artifactId>
-                                        <version>${version}</version>
+					 <source>${jdk.version}</source>
+                                         <target>${jdk.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
